@@ -1,4 +1,7 @@
 services:
-  hello-world:
-    image: hello-world
-    container_name: hello-world
+  postgres:
+    container_name: hedgedoc-db
+    image: postgres:13.4-alpine
+    volumes:
+      - /mnt/user/docker/test:/var/lib/postgresql/data
+      - /etc/passwd:/etc/passwd:ro
