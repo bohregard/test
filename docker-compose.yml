@@ -2,6 +2,7 @@ services:
   postgres:
     container_name: postgres
     image: postgres:13.4-alpine
+    env_file:
+      - .env
     volumes:
-      - /mnt/user/docker/test:/var/lib/postgresql/data
-      - /etc/passwd:/etc/passwd:ro
+      - ${DOCKER_ROOT:-./data}:/var/lib/postgresql/data
